@@ -1,6 +1,8 @@
 function Explore() {
   return (
-    <div></div>
+    <div>
+      <h1>Explore</h1>
+    </div>
   )
 }
 
