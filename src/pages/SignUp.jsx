@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibityIcon from '../assets/svg/visibilityIcon.svg'
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
-import { db } from '../firebase/config'
+import { db } from '../firebase.config'
 import {logDOM} from '@testing-library/react'
 
 function SignUp() {
