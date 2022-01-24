@@ -5,6 +5,7 @@ import visibityIcon from '../assets/svg/visibilityIcon.svg'
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { db } from '../firebase.config'
 import {logDOM} from '@testing-library/react'
+import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -24,7 +25,7 @@ function SignUp() {
     }))
   }
 
-  const onSubmit = async (e)=> {
+  const onSubmit = async (e) => {
     e.preventDefault()
     try{
       const auth = getAuth()
@@ -33,8 +34,13 @@ function SignUp() {
 
       const user = userCredential.user
       updateProfile(auth.currentUser, {
-        displayName: name
+        displayName: name,
       })
+
+      const formDataCopy = {...formData}
+      delete formDataCopy.password
+      formDataCopy.timeStamp = serverTimestamp()
+      await setDoc(doc(db, 'users', user.uid), formDataCopy )
       navigate('/')
     } catch (error){
       console.log(error)
