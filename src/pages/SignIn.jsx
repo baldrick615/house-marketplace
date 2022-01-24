@@ -72,7 +72,7 @@ function SignIn() {
               Sign In
             </p>
             <button className="signInButton">
-              <ArrowRightIcon fill='#ffffff' width='34px' height='34xp' />
+              <ArrowRightIcon fill='#ffffff' width='34px' height='34px' />
             </button>
           </div>
         </form>

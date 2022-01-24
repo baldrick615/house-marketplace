@@ -4,8 +4,8 @@ import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRight
 import visibityIcon from '../assets/svg/visibilityIcon.svg'
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { db } from '../firebase.config'
-import {logDOM} from '@testing-library/react'
 import {setDoc, doc, serverTimestamp} from 'firebase/firestore'
+import {toast} from 'react-toastify'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -42,8 +42,8 @@ function SignUp() {
       formDataCopy.timeStamp = serverTimestamp()
       await setDoc(doc(db, 'users', user.uid), formDataCopy )
       navigate('/')
-    } catch (error){
-      console.log(error)
+    } catch (error) {
+        toast.error('Something went wrong!')
     }
 
   }
@@ -86,7 +86,7 @@ function SignUp() {
               Sign Up
             </p>
             <button className="signUpButton">
-              <ArrowRightIcon fill='#ffffff' width='34px' height='34xp' />
+              <ArrowRightIcon fill='#ffffff' width='34px' height='34px' />
             </button>
           </div>
         </form>

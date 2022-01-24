@@ -6,7 +6,8 @@ import SignUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
 import Navbar from './components/Navbar'
 import Profile from './pages/Profile'
-import {ToastContainer, toast} from 'react-toastify'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
