@@ -10,6 +10,7 @@ import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './components/PrivateRoute'
 
+
 function App() {
   return (
     <>
